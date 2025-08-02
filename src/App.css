@@ -1,0 +1,1081 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Roottly Brand Colors - Updated to match logo */
+:root {
+  --roottly-blue: #4A90E2;
+  --roottly-orange: #FF6B47;
+  --roottly-cream: #FDF6E3;
+  --roottly-brown: #5D4037;
+  --roottly-gradient: linear-gradient(135deg, #4A90E2 0%, #FF6B47 100%);
+  --roottly-gradient-reverse: linear-gradient(135deg, #FF6B47 0%, #4A90E2 100%);
+  
+  /* Additional colors from logo */
+  --roottly-light-blue: #87CEEB;
+  --roottly-light-orange: #FFA07A;
+  --roottly-warm-cream: #FFF8DC;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--roottly-warm-cream);
+}
+
+/* Enhanced Roottly Animations */
+@keyframes bounce-gentle {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes pulse-soft {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes wheel-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes connection-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Roottly Logo Styles */
+.roottly-logo {
+  background: var(--roottly-gradient);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.roottly-logo::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: sparkle 3s linear infinite;
+}
+
+/* Enhanced Roottly Components */
+.roottly-gradient {
+  background: var(--roottly-gradient);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.roottly-gradient-reverse {
+  background: var(--roottly-gradient-reverse);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.roottly-button {
+  @apply px-6 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg;
+  background: var(--roottly-gradient);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.roottly-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.roottly-button:hover::before {
+  left: 100%;
+}
+
+.roottly-button:hover {
+  animation: pulse-soft 2s infinite;
+  transform: scale(1.05) translateY(-2px);
+}
+
+.roottly-card {
+  @apply bg-white rounded-3xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.roottly-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  background: var(--roottly-gradient);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.roottly-card:hover::before {
+  opacity: 1;
+}
+
+.roottly-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Family Connection Styles */
+.family-connection {
+  position: relative;
+}
+
+.family-connection::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--roottly-blue) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: connection-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Activity wheel styles */
+.activity-wheel {
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+}
+
+.activity-wheel.spinning {
+  animation: wheel-spin 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Message bubbles with Roottly styling */
+.message-bubble-sent {
+  @apply rounded-3xl px-6 py-4 max-w-xs shadow-lg;
+  background: var(--roottly-gradient);
+  color: white;
+  border-bottom-right-radius: 0.5rem;
+  position: relative;
+}
+
+.message-bubble-sent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: var(--roottly-orange);
+  border-bottom: 0;
+  margin-bottom: -10px;
+}
+
+.message-bubble-received {
+  @apply bg-white rounded-3xl px-6 py-4 max-w-xs shadow-lg;
+  border-bottom-left-radius: 0.5rem;
+  border: 2px solid var(--roottly-cream);
+  position: relative;
+}
+
+.message-bubble-received::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: white;
+  border-bottom: 0;
+  margin-bottom: -10px;
+}
+
+/* Lesson progress with family theming */
+.lesson-progress {
+  @apply w-full bg-gray-200 rounded-full h-4 shadow-inner;
+}
+
+.lesson-progress-fill {
+  @apply h-4 rounded-full transition-all duration-1000 relative overflow-hidden;
+  background: var(--roottly-gradient);
+}
+
+.lesson-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Video call styles with warm family feeling */
+.video-call-overlay {
+  backdrop-filter: blur(15px);
+  background: rgba(74, 144, 226, 0.1);
+  border: 2px solid rgba(255, 107, 71, 0.2);
+}
+
+.video-call-controls {
+  @apply flex justify-center gap-6 p-8;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.9) 0%, rgba(255, 107, 71, 0.9) 100%);
+  border-radius: 2rem 2rem 0 0;
+}
+
+.video-call-button {
+  @apply p-4 rounded-full text-white transition-all duration-300 transform hover:scale-110 shadow-xl;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.video-call-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Accessibility improvements with warm colors */
+.high-contrast {
+  filter: contrast(150%) saturate(120%);
+}
+
+.large-text {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  font-weight: 600;
+}
+
+.extra-large-text {
+  font-size: 2rem !important;
+  line-height: 2.5rem !important;
+  font-weight: 700;
+}
+
+/* Touch-friendly buttons with family warmth */
+.touch-button {
+  @apply min-h-16 min-w-16 touch-manipulation relative;
+  transition: all 0.2s ease;
+}
+
+.touch-button:active {
+  transform: scale(0.95);
+}
+
+.touch-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--roottly-gradient);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.touch-button:hover::after {
+  opacity: 0.1;
+}
+
+/* Loading states with family connection theme */
+.loading-spinner {
+  @apply animate-spin rounded-full border-4 border-transparent;
+  border-top-color: var(--roottly-blue);
+  border-right-color: var(--roottly-orange);
+}
+
+/* Enhanced notification badge */
+.notification-badge {
+  @apply absolute -top-2 -right-2 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold;
+  background: var(--roottly-gradient);
+  animation: bounce-gentle 2s infinite;
+  box-shadow: 0 4px 12px rgba(255, 107, 71, 0.4);
+}
+
+/* Success states with celebratory feel */
+.success-animation {
+  animation: success-pop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes success-pop {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Error states with gentle attention */
+.error-shake {
+  animation: gentle-shake 0.6s ease-in-out;
+}
+
+@keyframes gentle-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Game-like elements with family reward feeling */
+.score-counter {
+  @apply px-4 py-2 rounded-full font-bold text-lg;
+  background: var(--roottly-gradient);
+  color: white;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  animation: score-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes score-glow {
+  0% { box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3); }
+  100% { box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4); }
+}
+
+.achievement-badge {
+  @apply px-6 py-3 rounded-full font-bold shadow-xl;
+  background: var(--roottly-gradient);
+  color: white;
+  animation: achievement-celebration 1s ease-out;
+}
+
+@keyframes achievement-celebration {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Connection status with family bond theme */
+.status-online {
+  @apply w-4 h-4 rounded-full;
+  background: radial-gradient(circle, #10B981 0%, #059669 100%);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.status-offline {
+  @apply w-4 h-4 bg-gray-400 rounded-full opacity-60;
+}
+
+.status-connecting {
+  @apply w-4 h-4 rounded-full;
+  background: var(--roottly-gradient);
+  animation: connecting-pulse 1s ease-in-out infinite;
+}
+
+@keyframes connecting-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Enhanced Roottly logo animation */
+.roottly-logo-animated {
+  @apply w-16 h-16 rounded-2xl shadow-lg relative overflow-hidden;
+  background: var(--roottly-gradient);
+  animation: logo-pride 3s ease-in-out infinite;
+}
+
+@keyframes logo-pride {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 8px 24px rgba(255, 107, 71, 0.4);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Enhanced scrollbar with Roottly colors */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--roottly-cream);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--roottly-gradient);
+  border-radius: 6px;
+  border: 2px solid var(--roottly-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--roottly-gradient-reverse);
+}
+
+/* Focus states for accessibility with family-friendly colors */
+button:focus,
+input:focus,
+select:focus {
+  outline: 3px solid var(--roottly-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(74, 144, 226, 0.2);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .roottly-gradient {
+    background: var(--roottly-blue) !important;
+  }
+}
+
+/* Mobile optimizations with touch-friendly family interface */
+@media (max-width: 640px) {
+  .touch-button {
+    @apply min-h-20 min-w-20;
+  }
+  
+  .mobile-padding {
+    @apply px-6 py-4;
+  }
+  
+  .roottly-button {
+    @apply px-8 py-6 text-xl;
+  }
+  
+  .message-bubble-sent,
+  .message-bubble-received {
+    @apply max-w-xs text-lg;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid {
+    @apply grid-cols-2;
+  }
+  
+  .roottly-card {
+    @apply p-6;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .desktop-grid {
+    @apply grid-cols-3;
+  }
+  
+  .roottly-card {
+    @apply p-10;
+  }
+}
+
+/* Dark mode support with warm family colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --roottly-cream: #2D1B14;
+    --roottly-warm-cream: #3D2B1E;
+  }
+  
+  .dark-mode {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark-mode .roottly-card {
+    @apply bg-gray-800 text-white border-gray-700;
+  }
+  
+  .dark-mode .message-bubble-received {
+    @apply bg-gray-700 text-white border-gray-600;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .activity-wheel,
+  .roottly-logo-animated,
+  .floating-elements {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: high) {
+  .high-contrast-mode {
+    filter: contrast(200%) saturate(150%);
+  }
+  
+  .high-contrast-mode button {
+    border: 3px solid currentColor;
+  }
+  
+  .high-contrast-mode .roottly-button {
+    border: 3px solid white;
+  }
+}
+
+/* Custom utility classes for Roottly */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(93, 64, 55, 0.1);
+}
+
+.text-shadow-strong {
+  text-shadow: 0 4px 8px rgba(93, 64, 55, 0.3);
+}
+
+.glass-morphism {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(74, 144, 226, 0.1);
+}
+
+.glass-morphism-dark {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(74, 144, 226, 0.15);
+  border: 1px solid rgba(255, 107, 71, 0.18);
+  box-shadow: 0 8px 32px rgba(255, 107, 71, 0.1);
+}
+
+.gradient-text {
+  background: var(--roottly-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.gradient-text-reverse {
+  background: var(--roottly-gradient-reverse);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Special family connection effects */
+.family-bond-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.family-bond-effect::before {
+  content: '💙';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 20px;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.family-bond-effect::after {
+  content: '🧡';
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  font-size: 20px;
+  animation: float 3s ease-in-out infinite reverse;
+  opacity: 0.7;
+}
+
+.celebration-effect {
+  position: relative;
+  overflow: visible;
+}
+
+.celebration-effect::after {
+  content: '🎉';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 24px;
+  animation: bounce-gentle 1s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Grandparent-friendly large touch targets */
+.grandparent-button {
+  @apply min-h-20 min-w-20 p-6 text-2xl font-bold rounded-3xl shadow-xl;
+  background: var(--roottly-gradient);
+  color: white;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.grandparent-button:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 12px 32px rgba(74, 144, 226, 0.3);
+}
+
+.grandparent-button:active {
+  transform: scale(0.98) translateY(0px);
+}
+
+/* Child-friendly interactive elements */
+.child-button {
+  @apply min-h-16 min-w-16 p-4 text-xl font-semibold rounded-2xl shadow-lg;
+  background: var(--roottly-gradient-reverse);
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.child-button:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 8px 24px rgba(255, 107, 71, 0.3);
+}
+
+/* Connection animation for pairing devices */
+.connection-animation {
+  position: relative;
+}
+
+.connection-animation::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--roottly-blue);
+  border-radius: 50%;
+  border-top-color: transparent;
+  transform: translate(-50%, -50%);
+  animation: connection-spin 1s linear infinite;
+}
+
+@keyframes connection-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.connection-animation::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--roottly-orange);
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  transform: translate(-50%, -50%);
+  animation: connection-spin 1.5s linear infinite reverse;
+}
+
+/* Lesson completion celebration */
+.lesson-complete {
+  animation: lesson-celebration 2s ease-out;
+}
+
+@keyframes lesson-celebration {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    transform: scale(1.1);
+    filter: brightness(1.2) hue-rotate(45deg);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.4) hue-rotate(90deg);
+  }
+  75% {
+    transform: scale(1.08);
+    filter: brightness(1.1) hue-rotate(45deg);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* Reward unlock animation */
+.reward-unlock {
+  animation: reward-burst 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes reward-burst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+    filter: brightness(1);
+  }
+  30% {
+    transform: scale(1.3) rotate(120deg);
+    opacity: 1;
+    filter: brightness(1.5) hue-rotate(90deg);
+  }
+  60% {
+    transform: scale(0.9) rotate(240deg);
+    filter: brightness(1.3) hue-rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+/* Message send animation */
+.message-send {
+  animation: message-fly 0.6s ease-out;
+}
+
+@keyframes message-fly {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(20px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Avatar selection glow */
+.avatar-selected {
+  animation: avatar-glow 2s ease-in-out infinite;
+}
+
+@keyframes avatar-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+    border-color: var(--roottly-blue);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 107, 71, 0.6);
+    border-color: var(--roottly-orange);
+  }
+}
+
+/* Activity wheel result animation */
+.wheel-result {
+  animation: wheel-result-show 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes wheel-result-show {
+  0% {
+    transform: scale(0) rotateY(180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotateY(90deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Video call connecting animation */
+.video-connecting {
+  animation: video-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes video-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
+    border-color: var(--roottly-blue);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(74, 144, 226, 0);
+    border-color: var(--roottly-orange);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+    border-color: var(--roottly-blue);
+  }
+}
+
+/* Onboarding step transition */
+.onboarding-step {
+  animation: step-enter 0.5s ease-out;
+}
+
+@keyframes step-enter {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Settings toggle animation */
+.setting-toggle {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.setting-toggle:checked {
+  animation: toggle-success 0.3s ease-out;
+}
+
+@keyframes toggle-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Loading dots for connection */
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--roottly-gradient);
+  animation: loading-bounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+.loading-dots span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes loading-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive typography for different age groups */
+.text-grandparent {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.text-child {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Emergency/important button styling */
+.emergency-button {
+  @apply font-bold text-xl px-8 py-6 rounded-3xl shadow-xl;
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+@keyframes emergency-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+}
+
+/* Success checkmark animation */
+.success-check {
+  animation: check-draw 0.8s ease-out;
+}
+
+@keyframes check-draw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Fade in animation for new content */
+.fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from right for navigation */
+.slide-in-right {
+  animation: slide-in-right 0.4s ease-out;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced focus ring for better accessibility */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px var(--roottly-cream),
+    0 0 0 6px var(--roottly-blue),
+    0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* Final touch - ensure all Roottly elements feel cohesive */
+.roottly-theme {
+  --shadow-sm: 0 2px 4px rgba(93, 64, 55, 0.1);
+  --shadow-md: 0 4px 12px rgba(93, 64, 55, 0.15);
+  --shadow-lg: 0 8px 24px rgba(93, 64, 55, 0.2);
+  --shadow-xl: 0 12px 32px rgba(93, 64, 55, 0.25);
+}
+
+.roottly-theme * {
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.roottly-theme *:hover {
+  box-shadow: var(--shadow-md);
+}
