@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Family communication app with real Bluetooth connectivity",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://kingpractor.github.io/roottly-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -19,7 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "npx serve -s build -l 3000"
+    "serve": "npx serve -s build -l 3000",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,12 +46,7 @@
   "devDependencies": {
     "tailwindcss": "^3.3.0",
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24"
-  },
-
-  "homepage": "https://kingpractor.github.io/roottly-app",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "postcss": "^8.4.24",
+    "gh-pages": "^5.0.0"
   }
 }
