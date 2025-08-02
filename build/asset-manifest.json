@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/roottly-app/static/css/main.81a63224.css",
+    "main.js": "/roottly-app/static/js/main.c6bb3307.js",
+    "index.html": "/roottly-app/index.html",
+    "main.81a63224.css.map": "/roottly-app/static/css/main.81a63224.css.map",
+    "main.c6bb3307.js.map": "/roottly-app/static/js/main.c6bb3307.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81a63224.css",
+    "static/js/main.c6bb3307.js"
+  ]
+}
