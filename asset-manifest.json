@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RoottlyAP/static/css/main.81a63224.css",
+    "main.js": "/RoottlyAP/static/js/main.c6bb3307.js",
+    "index.html": "/RoottlyAP/index.html",
+    "main.81a63224.css.map": "/RoottlyAP/static/css/main.81a63224.css.map",
+    "main.c6bb3307.js.map": "/RoottlyAP/static/js/main.c6bb3307.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81a63224.css",
+    "static/js/main.c6bb3307.js"
+  ]
+}
